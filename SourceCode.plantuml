@@ -1,0 +1,52 @@
+    @startuml DAtabaseDesain
+entity universitas{
+    *id 
+    ----
+*nama : varchar
+*akreditasi : varchar
+}
+
+entity fakultas{
+    *id 
+    ----
+*nama : varchar
+}
+
+entity jurusan{
+    *id 
+    ----
+*nama : varchar
+*fakultas_id: varchar
+
+}
+
+entity dosen{
+    *id 
+    ----
+*jurusan_id: varchar
+*nip : varchar
+}
+
+entity matakuliah{
+    *id 
+    ----
+*nama : varchar
+*KodeMatkul : varchar
+}
+entity mahasiswa{
+    *id 
+    ----
+*nama : varchar
+*npm : varchar
+
+}
+
+
+universitas||--|{fakultas
+fakultas||--|{jurusan
+dosen}|--o{matakuliah
+mahasiswa}|--o{matakuliah
+universitas||--|{dosen
+universitas ||--|{mahasiswa
+jurusan}|--|{matakuliah
+@enduml
